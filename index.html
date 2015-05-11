@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="http://50df39cf1ff06ee2b590-6135bed6c599dc7ad437e065c1d165d2.r46.cf1.rackcdn.com/stylesheets/stylesheet.css">
+    
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    
+    <!-- Star Rating JS -->
+    <script src="http://50df39cf1ff06ee2b590-6135bed6c599dc7ad437e065c1d165d2.r46.cf1.rackcdn.com/javascripts/star-rating.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="http://50df39cf1ff06ee2b590-6135bed6c599dc7ad437e065c1d165d2.r46.cf1.rackcdn.com/stylesheets/star-rating.min.css">
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="https://b51a8ff2cfb1f3fc06d7-6135bed6c599dc7ad437e065c1d165d2.ssl.cf1.rackcdn.com/stylesheets/custom_front.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" media="all" href="https://b51a8ff2cfb1f3fc06d7-6135bed6c599dc7ad437e065c1d165d2.ssl.cf1.rackcdn.com/stylesheets/automic.css">
+
+    <title>Dollar Universe Check Exchanger Files</title>
+    
+  </head>
+
+
+<body id="ghpages">
+<div id="wrapper">
+<div id="header">
+<header>
+
+<div role="navigation" class="navbar navbar-default navbar-fixed-top" id="nav-strip">
+	<div class="bottom-nav ">
+	  <div class="row">
+	    <div class="container">
+              <dl class="dropdown nav navbar-nav navbar-right">
+                <div class="dp"></div>
+              </dl> 
+	      <div class="col-sm-3">
+		<a class="navbar-brand" href="http://www.automic.com/">
+		  
+		  <img class="image-logo" src="https://a5616ff0bb354f2460a0-9c1a2e36fc783cc4c58ab6184c27cf6b.ssl.cf1.rackcdn.com/white_logo.png" alt="">
+		  
+		</a>
+	      </div>
+	      <div class="col-sm-9">
+		<div class="navbar-header">
+		  <button data-target=".topheader" data-toggle="collapse" class="navbar-toggle" type="button">
+		    <span class="sr-only">Toggle navigation</span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		  </button>
+		</div>
+		<div style=" position: relative; top: 20px;" class="navbar-collapse topheader collapse">
+                  <!--/ 	<span class="glyphicon glyphicon-user start"></span>-->
+                    <ul class="nav navbar-nav front">
+					  <li class="m-home"><a href="https://marketplace.automic.com" target="_blank">Marketplace</a></li>
+                      <li><a href="http://docs.automic.com" target="_blank">Documentation</a></li>
+                      <li><a href="https://community.automic.com" target="_blank">Community</a></li>
+                    </ul>
+		</div><!--/.nav-collapse -->
+              </div><!--/.span-12 -->
+	    </div><!--/.row -->
+	  </div>
+      </div>
+</div>
+   
+</header>
+</div>
+
+ <!-- MAIN CONTENT -->
+    <div id="content">
+      <div class="container">
+
+          
+	<div class="row">
+	  <div>
+	    <h1>Dollar Universe Check Exchanger Files</h1>
+	  </div>
+	</div>
+	<div class="row">
+	  <div>
+	    <h2>This script is to detect old objects in the queue.</h2>
+	  </div>    
+	</div>
+      </div>
+    
+      <div class="container main_body">
+	<div class="row">
+	  
+	  <div class="col-md-8">
+	      <div class="row tabs">
+	      <ul class="nav nav-tabs">
+		<li class="active"><a href="#overview" data-toggle="tab">Overview</a></li>
+		<li><a href="#contents" data-toggle="tab">Contents</a></li>
+		<li><a href="#compatibility" data-toggle="tab">Compatibility</a></li>
+		<li><a href="#credits" data-toggle="tab">Credits</a></li>
+	      </ul>
+	      
+	    <!-- Tab contents -->  
+	    <div class="tab-content"> 
+	      <div id="overview" class="tab-pane active">
+		<div class="row">
+		  <div class="col-md-12 description">
+		    <h3>Description</h3>
+		    <p><div class="ipsType_textblock ipsPad_half description_content"><span><strong class="bbc">Description</strong></span><br />&nbsp;<br />In Dollar Universe, the Exchanger is is charge of:
+<ul class="bbc">
+<li>For Dollar Universe 5 and 6: send job of cross-node sessions from 1 node to another</li>
+<li>For Dollar Universe 5: distribute objects from 1 node to another</li>
+</ul>
+<span><strong class="bbc">Problem</strong></span>: if there is a communication issue, the objects to send are stored in a queue and this queue can fill up and make Dollar Universe fail when there are too many objects. Any object should not stay more than 1 day in the queue.<br />&nbsp;<br /><span><strong class="bbc">Solution</strong></span>: the goal of this script is to detect old objects in the queue.<br />&nbsp;<br />&nbsp;<br /><strong class="bbc"><span>Implementation</span></strong><br />&nbsp;<br />This script should be:
+<ul class="bbc">
+<li>Included in a CL_INT script</li>
+<li>Executed regularly on all Dollar Universe (at least once per week)</li>
+</ul>
+<span><strong class="bbc">Result</strong></span>: this script will not fix the issue, it will only abort if there are old records detected.<br />&nbsp;<br /><span class="bbc_underline">Example</span>:<br />&nbsp;<br />Run with no error found:<br />
+<pre class="prettyprint lang-auto linenums:0 prettyprinted"><span class="typ">Dollar</span><span class="pln"> </span><span class="typ">Universe</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> environment loaded
+
+</span><span class="typ">Checking</span><span class="pln"> old entries </span><span class="kwd">in</span><span class="pln"> the echanger files</span><span class="pun">...</span><span class="pln">
+
+&nbsp; </span><span class="typ">Success</span><span class="pun">:</span><span class="pln"> </span><span class="typ">No</span><span class="pln"> old entry found</span></pre>
+Run with error found:<br /><br />
+<pre class="prettyprint lang-auto linenums:0 prettyprinted"><span class="typ">Dollar</span><span class="pln"> </span><span class="typ">Universe</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> environment loaded
+
+</span><span class="typ">Checking</span><span class="pln"> old entries </span><span class="kwd">in</span><span class="pln"> the echanger files</span><span class="pun">...</span><span class="pln">
+&nbsp; ERROR</span><span class="pun">:</span><span class="pln"> </span><span class="lit">133</span><span class="pln"> old lines found </span><span class="kwd">in</span><span class="pln"> u_fecd file
+&nbsp; ERROR</span><span class="pun">:</span><span class="pln"> </span><span class="lit">132</span><span class="pln"> old lines found </span><span class="kwd">in</span><span class="pln"> u_fecl file
+
+&nbsp; </span><span class="typ">Advice</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Check</span><span class="pln"> the </span><span class="typ">Distribution</span><span class="pln"> </span><span class="typ">Exchange</span><span class="pln"> </span><span class="kwd">and</span><span class="pln"> </span><span class="typ">Job</span><span class="pln"> </span><span class="typ">Exchange</span></pre>
+&nbsp;<br /><span><strong class="bbc">Note / Actions</strong></span><br />&nbsp;<br />Once if the script detects an old record you have to:
+<ul class="bbc">
+<li>(DU 5 &amp; 6) Node log: check the node lod and check if there are communication issues with other nodes</li>
+<li>(DU 5) Distribution Exchange/Job Exchange: check the record in distribution exchange and clean the old records from there.</li>
+</ul>
+<p class="bbc_indent" style="margin-left: 40px;"><span><img class="bbc_img" src="http://www.orsypforum.com/uploads/gallery/album_15/gallery_299_15_5099.png" alt="Posted Image" /></span></p>
+</div></p>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="col-md-12 media">
+		  <h3>Media</h3>
+		  <p>[MEDIA]</p>
+		  </div>
+		</div>
+	      </div>
+	      
+	      <div id="contents" class="tab-pane">
+		<div class="row">
+		  <h3>Contents of Package</h3>
+		  <ul>
+		    <li>Dollar_Universe-Exchanger_Check.zip</li>
+		  </ul>
+		  <div class="downloads_buttons" style="margin-top:50px;font-size:1.2em;">
+		    <a class="download_zip dl" href="https://github.com/automic-community/Dollar-Universe-Check-Exchanger-Files/zipball/master">Download .zip</a>
+			<br><br>
+		    <a class="download_tar dl" href="https://github.com/automic-community/Dollar-Universe-Check-Exchanger-Files/tarball/master">Download .tar</a>  
+		  </div>
+		</div>
+	      </div>
+	      
+	      <div id="compatibility" class="tab-pane">
+		<div class="row">
+		<h3>Compatibility</h3>
+		  <div class="row">
+		    <div class="col-md-6">
+		      <h4 class="comp-product">Platform</h4>
+		      <div class="list">
+			<a href="http://marketplace.automic.com/marketplace/browse#category/Dollar Universe - UniJob">Dollar Universe - UniJob<span class="comma">,</span></a>
+		      </div>
+		    </div>
+		    <div class="col-md-6">
+		      <h4 class="comp-versions">Versions</h4>
+		      <div class="list">
+			 <a href="http://marketplace.automic.com/marketplace/browse#version/5.x">5.x<span class="comma">,</span></a> <a href="http://marketplace.automic.com/marketplace/browse#version/6.x">6.x<span class="comma">,</span></a>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="row">
+		    <div class="col-md-6">
+		      <h4 class="comp-platforms">Operating Systems</h4>
+		      <div class="list">
+			 <a href="http://marketplace.automic.com/marketplace/browse#platform/Linux">Linux<span class="comma">,</span></a> <a href="http://marketplace.automic.com/marketplace/browse#platform/Windows">Windows<span class="comma">,</span></a>
+		      </div>
+		    </div>
+		    <div class="col-md-6">
+		      <h4 class="comp-apps">Applications</h4>
+		      <div class="list">
+			
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      
+	      <div id="credits" class="tab-pane">
+		<div class="row">
+		<h3>Created by....</h3>
+		<div>
+		  Created By:  , 
+		</div>
+		</div>
+	      </div>
+	      
+	    </div>
+	    <!-- End of Tabbed Content -->
+	    </div>
+	      
+	    
+	<!-- Pulled out Comment code -->   
+	  
+	  </div>
+	  
+	  <div class="col-md-3 col-md-offset-1" style="top: -33px;">
+	    
+	      <div class="row d-links">
+		<div class="down-t">Downloads</div>
+		<a class="zip_download_link dl" href="https://github.com/Automic-Community/Dollar-Universe-Check-Exchanger-Files/zipball/master">Download this project as a .zip file</a>
+		<a class="tar_download_link dl" href="https://github.com/Automic-Community/Dollar-Universe-Check-Exchanger-Files/tarball/master">Download this project as a tar.gz file</a>
+	      </div>
+
+	      <div class="row rating">
+
+		<a class="forkme" href="https://github.com/Automic-Community/Dollar-Universe-Check-Exchanger-Files">View on GitHub</a>
+		 
+	  	 
+		<div class="social-buttons">
+		  <a target="_blank" class="share-btn twitter" href="http://twitter.com/share?url=http://automic-community.github.io/Dollar-Universe-Check-Exchanger-Files&text=Check%20out%20this%20awesome%20App%20on%20the%20%23AutomicCommunity%20eXchange&via=automic">
+		    <i class="fa fa-twitter"></i>
+		  </a>
+		  <a target="_blank" class="share-btn linkedin" href="http://www.linkedin.com/shareArticle?url=url=http://automic-community.github.io/Dollar-Universe-Check-Exchanger-Files&title=Dollar Universe Check Exchanger Files&summary=This script is to detect old objects in the queue.&source=url=http://github.com/automic-community/Dollar-Universe-Check-Exchanger-Files">
+		    <i class="fa fa-linkedin"></i>
+		  </a>
+		  <a target="_blank" class="share-btn facebook" href="http://www.facebook.com/sharer/sharer.php?u=http://automic-community.github.io/Dollar-Universe-Check-Exchanger-Files">
+		    <i class="fa fa-facebook-square"></i>
+		  </a>
+		  <a target="_blank" class="share-btn google-plus" href="https://plus.google.com/share?url=http://automic-community.github.io/Dollar-Universe-Check-Exchanger-Files">
+		    <i class="fa fa-google-plus-square"></i>
+		  </a>
+		  <a target="_blank" class="share-btn email" href="mailto:?subject=Check%20out%20this%20awesome%20App%20on%20the%20%23AutomicCommunity%20eXchange&body=This script is to detect old objects in the queue." >
+		    <i class="fa fa-envelope"></i>
+		  </a>
+		</div>
+
+	      </div>
+	   
+	    
+	    <div class="row tags">
+	      <div class="comp-type">
+		App
+	      </div>
+	      <div class="comp-product">
+		<a href="http://marketplace.automic.com/marketplace/browse#category/Dollar Universe - UniJob">Dollar Universe - UniJob<span class="comma">,</span></a>
+	      </div>
+	      <div class="comp-versions">
+	       <a href="http://marketplace.automic.com/marketplace/browse#version/5.x">5.x<span class="comma">,</span></a> <a href="http://marketplace.automic.com/marketplace/browse#version/6.x">6.x<span class="comma">,</span></a>
+	      </div>
+	      <div class="comp-platforms">
+		 <a href="http://marketplace.automic.com/marketplace/browse#platform/Linux">Linux<span class="comma">,</span></a> <a href="http://marketplace.automic.com/marketplace/browse#platform/Windows">Windows<span class="comma">,</span></a>
+	      </div>
+	      <div class="comp-apps">
+		
+	      </div>
+	    </div>
+	      
+	    <div class="row help">
+		<a class="supported" href="#">Community Supported</a>
+		<div class="ask">
+		  <a href="https://community.automic.com" target="_blank" class="btn">Ask the Community</a>
+		</div>
+		<p>
+		  Converse with your fellow Users in the <a href="http://community.automic.com">Community</a>.
+		</p>
+	    </div>
+	    
+	  </div>
+	
+	</div>
+	
+	<div class="row">
+	  <div class="col-md-3 col-md-offset-9">
+	    <div class="copyright">
+	      <h4>Copyright and License</h4>
+	      <p>
+		Solutions, Templates and other content created by the Automic Community and available on the Automic Marketplace is subject to the standard Community <a href="http://automic.com/community-terms-of-service">Terms of Service</a>. 
+		Automic does not support, maintain or warrant any Solution, Templates and/or other content created by the Automic Community on the Automic Marketplace.
+	      </p>
+	    </div>
+	  </div>
+	</div>
+	
+      </div>
+    </div>
+  
+  <div id="footer">
+  <footer>
+    <div class="container">
+      <!-- FOOTER  -->
+      <div class="row"> 
+	  <div class="copyright">
+	    Package maintained by the <a href="https://github.com/Automic-Community">Automic-Community</a> GitHub Org
+	  </div>
+	  <div>
+	    Published by the <a href="https://community.automic.com">Automic Think Tank</a>
+	  </div>
+      </div>
+    </div>
+  </footer>
+</div>
+  
+    </div>
+  </body>
+</html>
